@@ -132,7 +132,7 @@ export class LoginformComponent implements AfterViewInit {
   }
 
   saveUser() {
-  const inputRemember = document.getElementById("rememberMe") as HTMLInputElement;
+  const inputRemember = document.getElementById("rememberMeInput") as HTMLInputElement;
 
   if (inputRemember && inputRemember.checked) {
     localStorage.setItem('loggedIn', 'true');

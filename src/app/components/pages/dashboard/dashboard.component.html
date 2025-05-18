@@ -8,7 +8,7 @@
     
         <div class="titleAndSelect">
             <h1>Dashboard Ford</h1>
-            <select #dropdownVehicle class="form-select" aria-label="Default select example">
+            <select [(ngModel)]="optionSelect" id="dropdownVehicle" (change)="atualizarOptionSelect()" class="form-select" aria-label="Default select example">
                 <option value="1">Ranger</option>
                 <option value="2">Mustang</option>
                 <option value="3">Territory</option>
@@ -24,7 +24,7 @@
                 <i class="bi bi-receipt-cutoff"></i>
                 <span class="spanDivModel">Total de vendas</span>
                 </div>
-                <span class="spanInfoBlue">1500</span>
+                <span class="spanInfoBlue">{{totalDeVendas}}</span>
                 <span class="spanSubtitle">Und.</span>
             </div>
 
@@ -33,7 +33,7 @@
                 <i class="bi bi-wifi"></i>
                 <span class="spanDivModel">Conectados</span>
                 </div>
-                <span class="spanInfoBlue">1000</span>
+                <span class="spanInfoBlue">{{totalConectados}}</span>
                 <span class="spanSubtitle">Und.</span>
             </div>
 
@@ -42,17 +42,23 @@
                 <i class="bi bi-download"></i>
                 <span class="spanDivModel">Update Software</span>
                 </div>
-                <span class="spanInfoBlue">750</span>
+                <span class="spanInfoBlue">{{updateSOftware}}</span>
                 <span class="spanSubtitle">Und.</span>
             </div>
 
         </div>
 
         <div class="centralImageVehicle">
-            <img src="/public/assets/ranger.png" alt="Imagem do veículo">
+            <img [src]="imagemVeiculo" alt="Imagem do veículo">
         </div>
 
-        <!-- outra table teste -->
+        <div class="divVinVehicle">
+            <input id="inputVin" class="inputVin" type="text" placeholder="Insira o VIN do veículo">
+              <button (click)="atualizarVeiculoSelecionadoVIN()" type="button" class="btn btn-primary">  <i class="bi bi-search"></i> Buscar</button>
+
+        </div>
+
+        
         <div class="divNewTable">
             <table class="newtable">
                 <thead>
@@ -67,11 +73,11 @@
 
                 <tbody>
                     <tr>
-                        <td>50000</td>
-                        <td>70%</td>
-                        <td>On</td>
-                        <td>-15,0005</td>
-                        <td>50000</td>
+                        <td>{{odometro}}</td>
+                        <td>{{nivelDeCombustivel}}</td>
+                        <td>{{statusVeiculo}}</td>
+                        <td>{{latitude}}</td>
+                        <td>{{longitude}}</td>
                     </tr>
                 </tbody>
             </table>
@@ -80,17 +86,57 @@
     </div>
 
     <div class="chart">
-        <select class="selectChartType" name="selectChartType" id="selectChartType">
-            <option value="bar">Barras</option>
-            <option value="line">Linhas</option>
-            <option value="pie">Pizza</option>
-        </select>
+
      <app-vendas-chart></app-vendas-chart>
      <app-grafico-conectados></app-grafico-conectados>
      <app-updates-chart></app-updates-chart>
     </div>
     </div>
 
+    <div class="cardsmobile">
+        <div class="cardsMobileSection">
+            <div class="cardsMobileTitle">
+                <i class="bi bi-speedometer2"></i>
+                <span >Odômetro</span>
+            </div>
+            <span class="dynamicInfoCardsMobile">{{odometro}}</span>
+        </div>
 
+        <div class="cardsMobileSection">
+
+            <div class="cardsMobileTitle">
+                <i class="bi bi-fuel-pump"></i>
+                <span>Combustível</span>
+            </div>
+            <span class="dynamicInfoCardsMobile">{{nivelDeCombustivel}}%</span>
+        </div>
+
+        <div class="cardsMobileSection">
+            <div class="cardsMobileTitle">
+                <i class="bi bi-bell"></i>
+                <span>Status</span>
+            </div>
+            <span class="dynamicInfoCardsMobile">{{statusVeiculo}}</span>
+        </div>
+
+        <div class="cardsMobileSection">
+            <div class="cardsMobileTitle">
+                <i class="bi bi-pin-map"></i>
+                <span>Lat.</span>
+            </div>
+            <span class="dynamicInfoCardsMobile">{{latitude}}</span>
+        </div>
+
+        <div class="cardsMobileSection">
+            <div class="cardsMobileTitle">
+                <i class="bi bi-globe-europe-africa"></i>
+                <span>Long.</span>
+            </div>
+            <span class="dynamicInfoCardsMobile">{{longitude}}</span>
+        </div>
+
+
+
+    </div>
 </div>
 

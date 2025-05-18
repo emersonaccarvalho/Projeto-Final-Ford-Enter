@@ -79,7 +79,9 @@ option:hover{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: var(--corAzulMarinho);
+    /* background: var(--corAzulMarinho); */
+    background-image: url('https://img.freepik.com/fotos-premium/estrada-cruzamento-a-campo_69593-5835.jpg?semt=ais_hybrid&w=740');
+    background-size: 100% 100%; 
     border: solid 1px #ffffff;
     border-radius: 10px;
     min-height: 300px;
@@ -98,6 +100,47 @@ option:hover{
     color: var(--corAzulMarinho);
 }
 
+.cardsMobileSection{
+
+    border: solid 1px #00000036;
+    border-radius: 5px;
+    width: 130px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    box-shadow: 4px 4px 4px 2px;
+    height: 100px;
+}
+
+.cardsMobileTitle{
+    display: flex;
+    background-color: #00095B;
+    color: white;
+    width: 100%;
+    padding: 10px 0px;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+}
+
+.cardsmobile{
+    display: none;
+    flex-direction: row;
+    gap: 10px;
+    margin-bottom: 70px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.dynamicInfoCardsMobile{
+    margin-top: 15px;
+    font-weight: bold;
+}
+
 
 .divMainPage{
     display: flex;
@@ -110,6 +153,32 @@ option:hover{
     height: 75vh;
     background: #F8FBFE;
     padding: 100px 0px;
+
+}
+
+.divVinVehicle{
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+}
+
+.inputVin{
+    height: 38px;
+    padding: 6px 12px;
+    align-self: center;
+    border-radius: 5px;
+    flex-grow: 1;
+    width: max-content;
+}
+
+.btn-primary{
+    background-color: var(--corAzulMarinho);
+}
+
+.btn-primary:hover{
+    background-color: var(--corAzulFraco);
 }
 
 
@@ -226,11 +295,6 @@ thead{
     border-color: #00095B;
 }
 
-.selectChartType{
-    width: 150px;
-    align-self: flex-end;
-    text-align: center;
-}
 
 @media(max-width:1151px){
     .spanDivModel{
@@ -255,10 +319,11 @@ thead{
 
     .divMainPage2{
         margin-right: 20px;
+        margin-top: 150px;
     }
 
     .chartAndDash{
-        margin-top: 20px;
+        margin-top: -90px;
     }
 }
 
@@ -271,8 +336,13 @@ thead{
         display: none;
     }
 
+    .cardsmobile{
+        display: flex;
+        padding-bottom: 30px;
+    }
+
     .divMainPage2{
-        margin-top: 200px;
+        margin-top: 480px;
     }
 }
 
@@ -288,6 +358,18 @@ thead{
     .divMenuCards{
         align-items: center;
         justify-content: center;
+    }
+
+    .divMainPage2{
+        padding-top: 80px;
+    }
+
+    .divVinVehicle{
+    display: none;
+    }
+
+    .centralImageVehicle{
+        min-height: 200px;
     }
 
 }
@@ -307,9 +389,30 @@ thead{
     .titleAndSelect{
         flex-direction: column;
         align-items: center;
+        margin-top: 0;
     }
 
     .form-select{
         max-width: 345px;
     }
+
+    .divMainPage2{
+        padding-top: 30px;
+    }
+
+    .centralImageVehicle{
+        height: 200px;
+        padding: 0px;
+    }
+
+
+    
 }
+
+@media(max-width:410px){
+    .divMainPage2{
+        margin-top: 600px;
+    }
+
+}
+

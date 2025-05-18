@@ -4,6 +4,7 @@ import { HeaderComponent } from '../../header/header.component';
 import { FooterComponent } from '../../footer/footer.component';
 import { Modal } from 'bootstrap';
 import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-contato',
@@ -13,7 +14,7 @@ import { CommonModule } from '@angular/common';
 })
 export class ContatoComponent {
 
-constructor(private titleService: Title) {}
+constructor(private titleService: Title,private http:HttpClient) {}
 
   //variáveis
   cpfTrue:boolean = false;
@@ -27,7 +28,8 @@ constructor(private titleService: Title) {}
   emailValid:boolean = false;
   modalPopup!:Modal;
   popupTitle:string = "Preencha todos os campos";
-  
+  imagemVeiculoRanger:string = "";
+  showLGPD:boolean = false;
 
 
   //Métodos
@@ -35,9 +37,11 @@ constructor(private titleService: Title) {}
 
 
   ngOnInit() {
+    this.setVehicleInfoByOptionID(1);
     this.titleService.setTitle('Contato - Ford do Brasil');
     this.InicializarPopup();
     this.focusNome();
+    
   }
 
   InicializarPopup(){
@@ -54,6 +58,7 @@ constructor(private titleService: Title) {}
   }
 
   verificarCamposPreenchidos() :void{
+    this.showLGPD = false;
     const nomeElement = document.getElementById("userNameContact") as HTMLInputElement
     this.nomeValue = nomeElement.value
 
@@ -86,16 +91,38 @@ constructor(private titleService: Title) {}
       this.modalPopup.show();
     }
 
+    showPopupLGPD(){
+      this.showLGPD = true;
+      this.modalPopup.show();
+      this.popupTitle = "Termos da LGPD"
+    }
+
     resetForm(){
       const form = document.getElementById('contactForm') as HTMLFormElement;
+      if (this.todosOsCamposPreenchidos){
       form.reset();
       this.focusNome();
+      this.showLGPD = false;
+      this.popupTitle = "Preencha todos os campos"
+      }
     }
 
     focusNome(){
     const nomeElement = document.getElementById("userNameContact") as HTMLInputElement
     nomeElement.focus();
 
+    }
+
+    setVehicleInfoByOptionID(ID:number) {
+    this.http.post<any>("http://localhost:3001/vehicleDataByID",{ID}).subscribe({
+      next: (res) => {
+        this.imagemVeiculoRanger = res.img;
+
+      },
+      error: (err) => {
+        console.error("Erro ao buscar veículos: ID:", err);
+      }
+    });
     }
 
 

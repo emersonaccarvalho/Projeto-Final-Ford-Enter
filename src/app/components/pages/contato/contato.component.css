@@ -29,6 +29,8 @@
     align-items: center;
     justify-content: center;
     border-right: solid 1px #00000015;
+    background-image: url('https://img.freepik.com/fotos-premium/estrada-cruzamento-a-campo_69593-5835.jpg?semt=ais_hybrid&w=740');
+    background-size: 100% 90%;
 }
 
 .divDireita{
@@ -38,7 +40,7 @@
     height: 100%;
     align-items: center;
     justify-content: center;
-        margin: 0px 10px;
+    margin: 0px 10px;
 
 }
 
@@ -62,6 +64,20 @@ textarea{
     height: 70px;
 }
 
+
+.hover-underline {
+  cursor: pointer;
+  text-decoration: none;
+  transition: text-decoration 0.2s;
+}
+
+.hover-underline:hover {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+
+
 .vehicle-features{
     display: flex;
     flex-direction: row;
@@ -72,6 +88,19 @@ textarea{
 .features{
     display: flex;
     flex-direction: column;
+    align-items: center;
+    padding: 15px 0px;
+    background-color: white;
+    border: 1px solid #00000049;
+    border-radius: 10px;
+    box-shadow: 4px 4px 4px 2px #000000c4;
+    width: 200px;
+    transition: transform 0.8s ease;
+    
+}
+
+.features:hover{
+    transform: scale(1.1);
 }
 
 #iconCarFeatures{
@@ -107,6 +136,16 @@ form{
 
 .btn-primary:hover{
     transform: scale(1.1);
+}
+
+@media(max-width:1323px){
+    .vehicle-features{
+        display: none;
+    }
+
+    .divFormAndLabel{
+        margin-top: 20px;
+    }
 }
 
 @media(max-width:933px){

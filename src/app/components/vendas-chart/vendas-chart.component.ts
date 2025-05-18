@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, AfterViewInit } from '@angular/core';
 import { Chart, registerables } from 'chart.js';
 
@@ -10,26 +11,58 @@ Chart.register(...registerables);
 })
 export class VendasChartComponent implements AfterViewInit {
 
-  //Variáveis
-  selectOption:any;
+
+constructor(private http:HttpClient){}
+
+  modelos:string[] = [];
+  vendas:number[] = [];
+  conectados:number[] = [];
+  atualizados:number[] = [];
+
+  atualizarBase(): void {
+
+    this.setVehicleInfoByOptionID(1);
+    this.setVehicleInfoByOptionID(2);
+    this.setVehicleInfoByOptionID(3);
+    this.setVehicleInfoByOptionID(4);
+
+  }
 
 
+
+
+  setVehicleInfoByOptionID(ID:number) {
+    this.http.post<any>("http://localhost:3001/vehicleDataByID",{ID}).subscribe({
+      next: (res) => {
+        console.log("entrou next")
+        this.modelos.push(res.vehicle);
+        this.vendas.push(res.volumetotal);
+        this.conectados.push(res.connected);
+        this.atualizados.push(res.softwareUpdates);
+
+        },
+      error: (err) => {
+        console.error("Erro ao buscar veículos: página vendas chart", err);
+      }
+    });
+    }
 
   ngAfterViewInit(): void {
+    this.atualizarBase();
 
-    const selectElementTypeChart = document.getElementById("selectChartType") as HTMLSelectElement
-    this.selectOption = selectElementTypeChart.value;
 
 
     const ctx = document.getElementById('vendasChart') as HTMLCanvasElement;
 
-    new Chart(ctx, {
-      type: this.selectOption,
+    setTimeout(() => {
+      
+      new Chart(ctx, {
+      type: "bar",
       data: {
-        labels: ['Ranger', 'Mustang', 'Territory', 'Bronco Sport'],
+        labels: this.modelos,
         datasets: [{
           label: 'Vendas de Veículos',
-          data: [1500, 800, 1250, 980],
+          data: this.vendas,
           backgroundColor: ['#003399', '#CC0000', '#006633', '#FF9900'],
           borderColor: '#000',
           borderWidth: 1
@@ -46,5 +79,12 @@ export class VendasChartComponent implements AfterViewInit {
         }
       }
     });
+
+
+
+
+    }, 500);
+
   }
+
 }

@@ -2,7 +2,7 @@
 
 <div class="divMainContact">
     <div class="divEsquerda">
-        <img class="imageRanger" src="/assets/ranger.png" alt="Imagem Ford Ranger">
+        <img class="imageRanger" [src]="imagemVeiculoRanger" alt="Imagem Ford Ranger">
 
         <div class="vehicle-features">
             <div class="features">
@@ -24,7 +24,6 @@
     </div>
 
     <div class="divDireita">
-        <img style="width: 20%;margin-bottom: 10px; margin-top: 10px;" src="/assets/ford logo different.png" alt="Logo Ford">
         <div class="divFormAndLabel">
             
             <span style="color: white; text-align: center; justify-self: center;">Informe os seus dados para entrar em contato conosco</span>
@@ -58,6 +57,7 @@
                     <label for="userName">Sua mensagem</label>
                     <textarea name="mensagemUser" id="mensagemUser"></textarea>
                 </div>
+                <span style="width: 100%; color: white; text-align: justify;"> Ao nos enviar uma mensagem, você concorda com os nossos termos de uso e a nossa política de privacidade. <span (click)="showPopupLGPD()" class="hover-underline">Clique aqui</span> para saber mais.</span>
                 </div>
                 <button (click)="verificarCamposPreenchidos()" type="button" class="btn btn-lg btn-primary">Enviar</button>
             </form>
@@ -67,7 +67,7 @@
 
 </div>
 
-<!-- //popup campos em branco -->
+<!-- //popup -->
 <div class="modal fade" id="mainPopup" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -78,13 +78,17 @@
 
             <div class="modal-body">
                 <div *ngIf="!todosOsCamposPreenchidos" style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: 30px;">
-                    <i class="bi bi-exclamation-triangle"></i>
-                    <span  style="text-align: center; font-size: 20px; font-weight: bold; margin-bottom: 20px;">Ops! Parece que há campos em branco. Preencha todos para continuar. </span>
+                    <i *ngIf="!showLGPD" class="bi bi-exclamation-triangle"></i>
+                    <span *ngIf="!showLGPD"  style="text-align: center; font-size: 20px; font-weight: bold; margin-bottom: 20px;">Ops! Parece que há campos em branco ou o e-mail está inválido. Preencha todos os campos corretamente para continuar. </span>
                 </div>
 
                 <div *ngIf="todosOsCamposPreenchidos" style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: 30px;">
-                    <i class="bi bi-check-all"></i>
-                    <span  style="text-align: justify; font-size: 20px; margin-bottom: 20px;">Obrigado pela sua mensagem, {{nomeValue}}! <br> <br> Acabamos de receber a sua solicitação e responderemos o mais breve possível através do e-mail {{emailValue}}. <br><br>Até logo! </span>
+                    <i *ngIf="!showLGPD" class="bi bi-check-all"></i>
+                    <span *ngIf="!showLGPD" style="text-align: justify; font-size: 20px; margin-bottom: 20px;">Obrigado pela sua mensagem, {{nomeValue}}! <br> <br> Acabamos de receber a sua solicitação e responderemos o mais breve possível através do e-mail {{emailValue}}. <br><br>Até logo! </span>
+                </div>
+
+                <div *ngIf="showLGPD" style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: 30px;">
+                    <span  style="text-align: justify; font-size: 20px; margin-bottom: 20px;">Ao enviar sua mensagem, você concorda com a coleta e o tratamento dos dados informados (nome, e-mail e CPF), conforme as diretrizes da Lei Geral de Proteção de Dados (LGPD – Lei nº 13.709/2018).<br> <br> Essas informações serão utilizadas exclusivamente para fins de atendimento, comunicação e melhoria dos nossos serviços. Seus dados são tratados com segurança, confidencialidade e não serão compartilhados com terceiros sem o seu consentimento.<br> <br> Para mais detalhes, consulte nossa Política de Privacidade completa disponível no site da Ford.</span>
                 </div>
             </div>        
         </div>

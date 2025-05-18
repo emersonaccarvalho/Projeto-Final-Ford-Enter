@@ -1,0 +1,124 @@
+<app-header />
+
+<div class="main">
+
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/3nW3UoOxV3k" allowfullscreen>
+        </iframe>
+    </div>
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="popupElement" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Compare os modelos</h5>
+                    <button (click)="hidePopup()" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                        <div class="tableCompare">
+                            <table class="newtable">
+                                    <thead>
+                                        <tr>
+                                            <th> </th>
+                                            <th><img style="width: 100%;" src="{{imagens[opcoesEscolhidas[0]]}}" alt=""></th>
+                                            <th><img style="width: 100%;" src="{{imagens[opcoesEscolhidas[1]]}}" alt=""></th>
+                                        </tr>
+
+                                            <tr>
+                                            <th> </th>
+                                            <th>{{modelos[opcoesEscolhidas[0]]}}</th>
+                                            <th>{{modelos[opcoesEscolhidas[1]]}}</th>
+                                        </tr>
+                                    </thead>
+
+
+                                    <tbody>
+                                        <tr>
+                                            <td>Tipo de Veículo</td>
+                                            <td>{{tiposDeVeiculos[opcoesEscolhidas[0]]}}</td>
+                                            <td>{{tiposDeVeiculos[opcoesEscolhidas[1]]}}</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Tração</td>
+                                            <td>{{tracao[opcoesEscolhidas[0]]}}</td>
+                                            <td>{{tracao[opcoesEscolhidas[1]]}}</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Motorização</td>
+                                            <td>{{motorizacao[opcoesEscolhidas[0]]}}</td>
+                                            <td>{{motorizacao[opcoesEscolhidas[1]]}}</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Capacidade de Carga</td>
+                                            <td>{{capacidadeDeCarga[opcoesEscolhidas[0]]}}</td>
+                                            <td>{{capacidadeDeCarga[opcoesEscolhidas[1]]}}</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Design</td>
+                                            <td>{{design[opcoesEscolhidas[0]]}}</td>
+                                            <td>{{design[opcoesEscolhidas[1]]}}</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Tecnologias de bordo</td>
+                                            <td>{{tecnologiaDeBordo[opcoesEscolhidas[0]]}}</td>
+                                            <td>{{tecnologiaDeBordo[opcoesEscolhidas[1]]}}</td>
+                                        </tr>
+
+                                    </tbody>
+                            </table>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- Button trigger modal -->
+    <span class="selectTwoVehicles">Selecione 2 veículos para comparação</span>
+    <div class="carsToCompare">
+        <div (click)="marcarDesmarcarCheckbox('checkboxInput1')" class="carCompareCard">
+            <img style="width: 100%;" [src]="imagens[0]" [alt]="imagens[0]">
+            <span id="checkbox1" class="carModelName">Ford {{modelos[0]}}</span>
+            <input id="checkboxInput1" class="checkboxInput1" type="checkbox">
+        </div>
+
+        <div (click)="marcarDesmarcarCheckbox('checkboxInput2')"  class="carCompareCard">
+            <img style="width: 100%;" [src]="imagens[1]" [alt]="imagens[1]">
+            <span class="carModelName">Ford {{modelos[1]}}</span>
+            <input id="checkboxInput2"  class="checkboxInput2" type="checkbox">
+        </div>
+
+        <div (click)="marcarDesmarcarCheckbox('checkboxInput3')"  class="carCompareCard">
+            <img style="width: 100%;" [src]="imagens[2]" [alt]="imagens[2]">
+            <span class="carModelName">Ford {{modelos[2]}}</span>
+            <input id="checkboxInput3"  class="checkboxInput3" type="checkbox">
+        </div>
+
+        <div (click)="marcarDesmarcarCheckbox('checkboxInput4')"  class="carCompareCard">
+            <img style="width: 100%;" [src]="imagens[3]" [alt]="imagens[3]">
+            <span class="carModelName">Ford {{modelos[3]}}</span>
+            <input id="checkboxInput4"  class="checkboxInput4" type="checkbox">
+        </div>
+    </div>
+
+
+
+    <button (click)="verificarCheckboxesPreenchidos()" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+    Comparar modelos
+    </button>
+
+
+</div>
+<app-footer></app-footer>

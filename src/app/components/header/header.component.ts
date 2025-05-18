@@ -66,5 +66,9 @@ export class HeaderComponent implements AfterViewInit {
     this.router.navigate(['/dashboard']);
   }
 
+    goToLancamentoPage(){
+    this.router.navigate(['/lancamento']);
+  }
+
 
 }

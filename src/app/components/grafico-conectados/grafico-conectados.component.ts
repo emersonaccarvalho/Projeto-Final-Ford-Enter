@@ -1,20 +1,16 @@
 import { HttpClient } from '@angular/common/http';
-import { AfterViewInit, Component } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 import { Chart, registerables } from 'chart.js';
 
 Chart.register(...registerables);
 
-
 @Component({
-  selector: 'app-updates-chart',
-  imports: [],
-  templateUrl: './updates-chart.component.html',
-  styleUrl: './updates-chart.component.css'
+  selector: 'app-grafico-conectados',
+  templateUrl: './grafico-conectados.component.html',
+  styleUrls: ['./grafico-conectados.component.css']
 })
-export class UpdatesChartComponent implements AfterViewInit{
-
-
-   constructor(private http:HttpClient){}
+export class GraficoConectadosComponent implements AfterViewInit {
+  constructor(private http:HttpClient){}
 
   modelos:string[] = [];
   vendas:number[] = [];
@@ -24,19 +20,9 @@ export class UpdatesChartComponent implements AfterViewInit{
   atualizarBase(): void {
 
     this.setVehicleInfoByOptionID(1);
-    setTimeout(() => {
-      this.setVehicleInfoByOptionID(2);
-    }, 300);
-    
-
-    setTimeout(() => {
-      this.setVehicleInfoByOptionID(3);
-    }, 300);
-
-    setTimeout(() => {
-      this.setVehicleInfoByOptionID(4);
-    }, 300);
-    
+    this.setVehicleInfoByOptionID(2);
+    this.setVehicleInfoByOptionID(3);
+    this.setVehicleInfoByOptionID(4);
 
   }
 
@@ -59,45 +45,33 @@ export class UpdatesChartComponent implements AfterViewInit{
     });
     }
 
-
-
-
-ngAfterViewInit(): void {
+  ngAfterViewInit(): void {
     this.atualizarBase();
 
-
-  setTimeout(() => {
-    
-    const ctx = document.getElementById('atualizadosChart') as HTMLCanvasElement;
-
-    new Chart(ctx, {
+    setTimeout(() => {
+      
+    new Chart('conectadosChart', {
       type: 'bar',
       data: {
         labels: this.modelos,
         datasets: [{
-          label: 'Veículos atualizados',
-          data: this.atualizados,
-          backgroundColor: ['#003399', '#CC0000', '#006633', '#FF9900'],
-          borderColor: '#000',
-          borderWidth: 1
+          label: 'Veículos Conectados',
+          data: this.conectados,
+          backgroundColor: ['#003399', '#CC0000', '#006633', '#FF9900']
         }]
       },
       options: {
         responsive: true,
         plugins: {
           legend: { display: false },
-          title: { display: true, text: 'Veículos Ford com sistema atualizado' }
+          title: { display: true, text: 'Veículos Conectados Ford' }
         },
         scales: {
           y: { beginAtZero: true }
         }
       }
     });
-  }, 500);
+    }, 500);
 
-  
   }
-
-
-  
 }

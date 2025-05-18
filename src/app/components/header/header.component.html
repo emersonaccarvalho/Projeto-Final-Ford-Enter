@@ -4,7 +4,7 @@
     
     <ul>
         <li (click)="goToHomePage()" class="optionMenu">Home</li>
-        <li>Lançamento</li>
+        <li (click)="goToLancamentoPage()">Lançamento</li>
         <li (click)="goToContactPage()">Contato</li>
         <li (click)="goToDashboardPage()" *ngIf="logado">Dashboard</li>
         <li *ngIf="!logado" (click)="showPopupLogin()">Login</li>
@@ -27,7 +27,7 @@
 
             <div class="divOptionsFromSideBarMenu">
                 <i class="bi bi-rocket-takeoff"></i>
-                <p class="optionMenu">Lançamento</p>
+                <p (click)="goToLancamentoPage()" class="optionMenu">Lançamento</p>
             </div>
 
             <div class="divOptionsFromSideBarMenu">
@@ -42,7 +42,7 @@
 
             <div *ngIf = "!logado" class="divOptionsFromSideBarMenu">
                 <i class="bi bi-box-arrow-in-right"></i>
-                <p class="optionMenu">Login</p>
+                <p (click)="showPopupLogin()" class="optionMenu">Login</p>
             </div>
 
             <div *ngIf = "logado" class="divOptionsFromSideBarMenu">
