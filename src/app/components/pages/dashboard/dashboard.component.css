@@ -1,0 +1,315 @@
+
+h1{
+    color: var(--corAzulMarinho);
+}
+
+.titleAndSelect{
+    margin-top: 30px;
+    display: flex; 
+    flex-direction: row; 
+    max-width: 1200px; 
+    width: 100%;
+    justify-content: space-between
+}
+
+.divMainModel{
+    display: flex;
+    flex-direction: column;
+    max-width: 200px;
+    width: 100%;
+    border: solid 1px #000000;
+    box-shadow: 4px 4px 4px 2px #00000034;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.spanDivModel{
+    height: 40px;
+    padding: 8px  ;
+    color: var(--corAzulMarinho);
+
+}
+
+.bi-receipt-cutoff, .bi-wifi, .bi-download{
+    font-size: 20px;
+    color: var(--corAzulMarinho);
+    margin-top: 2px;
+}
+
+.form-select{
+    max-width: 180px;
+    text-align: center;
+    align-self: center;
+    height: 40px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    border: solid 1px var(--corAzulFraco);
+}
+
+option:hover{
+    background-color: var(--corAzulFraco);
+}
+
+.groupperDiv{
+    display: flex;
+    flex-direction: row;
+    max-width: 1200px;
+    width: 100%;
+    gap: 20px;
+    justify-content: space-between;
+
+}
+
+.spanInfoBlue{
+    align-self: center;
+    color:  var(--corAzulMarinho);
+    font-size: 22px;
+    margin-bottom: 0px;
+}
+
+.spanSubtitle{
+    align-self: center;
+    height:min-content;
+    color:  var(--corAzulMarinho);
+    align-items: flex-start;
+}
+
+.centralImageVehicle{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--corAzulMarinho);
+    border: solid 1px #ffffff;
+    border-radius: 10px;
+    min-height: 300px;
+    max-width: 800px;
+    width: 100%;
+    padding: 20px;
+}
+
+.centralImageVehicle img {
+    width: 100%;
+    align-self: center;
+}
+
+.backgroundAzulTable{
+    background-color: white;
+    color: var(--corAzulMarinho);
+}
+
+
+.divMainPage{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 15px;
+    height: 75vh;
+    background: #F8FBFE;
+    padding: 100px 0px;
+}
+
+
+.divMainPage2{
+    margin-top: 0px;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 30px;
+    max-width: 700px;
+    border: solid 3px rgb(202, 194, 194);
+    border-radius: 10px;
+    box-shadow: 4px 4px 4px 2px;
+    background: white;
+    max-height: 710px;
+}
+
+
+.divMainModel:hover{
+    border-color: var(--corAzulFraco);
+    
+}
+
+
+.divNewTable{
+    display: flex;
+    max-width: 800px;
+    width: 100%;
+    border: solid 1px var(--corAzulMarinho);
+    border-radius: 5px;
+}
+
+.newtable{
+    table-layout: fixed;
+    max-width: 800px;
+    width: 100%;
+}
+
+
+th, td{
+    white-space: nowrap;
+    margin-right: 20px;
+    text-align: center;
+    
+}
+
+th{
+    color: var(--corAzulMarinho);
+    border: none;
+}
+
+td{
+    margin-left: 10px;
+    background-color: white;
+}
+
+thead{
+    background-color: white;
+}
+
+.firstThTable{
+    background-color: white; 
+    color: var(--corAzulMarinho); 
+    border-top-left-radius: 5px;
+    width: 200px;
+}
+
+.lastThTable{
+    background-color: white; 
+    color: var(--corAzulMarinho); 
+    border-top-right-radius: 5px;
+}
+
+.chartAndDash{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    margin-top: 200px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    margin-left: 20px;
+}
+
+.chart{
+    margin-left: 20px;
+    margin-top: 0px;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 30px;
+    max-width: 1000px;
+    border: solid 3px rgb(202, 194, 194);
+    border-radius: 10px;
+    box-shadow: 4px 4px 4px 2px;
+    background: white;
+    margin-right: 30px;
+
+}
+
+.divMenuCards{
+    display: flex; 
+    flex-direction: row; 
+    padding-left: 20px; 
+    border-bottom: solid 1px; 
+    width: 100%; 
+    border-color: #00095B;
+}
+
+.selectChartType{
+    width: 150px;
+    align-self: flex-end;
+    text-align: center;
+}
+
+@media(max-width:1151px){
+    .spanDivModel{
+        font-size: 16px;
+    }
+}
+
+@media(max-width:1061px){
+    .spanDivModel{
+        font-size: 14px;
+    }
+
+    .divMenuCards{
+    padding-left: 5px;
+    }
+}
+
+@media(max-width:996px){
+    .chart{
+        display: none;
+    }
+
+    .divMainPage2{
+        margin-right: 20px;
+    }
+
+    .chartAndDash{
+        margin-top: 20px;
+    }
+}
+
+@media(max-width:587px){
+    .groupperDiv{
+        flex-wrap: wrap;
+    }
+
+    table, .divNewTable{
+        display: none;
+    }
+
+    .divMainPage2{
+        margin-top: 200px;
+    }
+}
+
+@media(max-width:534px){
+    .divMainModel{
+    max-width: 425px;
+    }
+
+    .spanDivModel{
+        font-size: 20px;
+    }
+
+    .divMenuCards{
+        align-items: center;
+        justify-content: center;
+    }
+
+}
+
+@media(max-width:504px){
+    h1{
+        font-size: 22px;
+    }
+
+    .centralImageVehicle{
+        height: 100px;
+    }
+
+}
+
+@media(max-width:450px){
+    .titleAndSelect{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .form-select{
+        max-width: 345px;
+    }
+}

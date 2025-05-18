@@ -1,0 +1,95 @@
+<app-header></app-header>
+
+<div class="divMainContact">
+    <div class="divEsquerda">
+        <img class="imageRanger" src="/assets/ranger.png" alt="Imagem Ford Ranger">
+
+        <div class="vehicle-features">
+            <div class="features">
+                <i id="iconCarFeatures" class="fa-solid fa-car"></i>
+                <span class="spanCarFeature">Motor potente</span>
+            </div>
+
+            <div class="features">
+                <i id="iconCarFeatures" class="fa-solid fa-road"></i>
+                <span class="spanCarFeature">Capacidade off-road</span>
+            </div>
+
+            <div class="features">
+                <i id="iconCarFeatures" class="fa-solid fa-gauge"></i>
+                <span class="spanCarFeature">Eficiência de combustível</span>
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="divDireita">
+        <img style="width: 20%;margin-bottom: 10px; margin-top: 10px;" src="/assets/ford logo different.png" alt="Logo Ford">
+        <div class="divFormAndLabel">
+            
+            <span style="color: white; text-align: center; justify-self: center;">Informe os seus dados para entrar em contato conosco</span>
+            <form id="contactForm" action="post">
+                <div class="labelAndInputDiv">
+                    <label for="userNameContact">Seu nome completo</label>
+                    <input id="userNameContact" type="text" placeholder="Informe o seu nome">
+                </div>
+
+                <div class="labelAndInputDiv">
+                    <label for="userCPF">Seu CPF</label>
+                    <input id="userCPF" type="text" placeholder="Informe o seu CPF">
+                </div>
+
+                <div class="labelAndInputDiv">
+                    <label for="userMail">Seu E-mail</label>
+                    <input id="userMail" type="email" placeholder="Informe o seu e-mail">
+                </div>
+
+                <div class="labelAndInputDiv">
+                    <label for="assunto">Selecione o assunto do contato</label>
+                    <select name="assunto" id="selectAssunto">
+                        <option value="1">Dúvidas</option>;
+                        <option value="2">Elogios</option>;
+                        <option value="3">Informações</option>;
+                        <option value="4">Sugestões</option>;
+                        <option value="5">Reclamações</option>
+                    </select>
+
+                    <div class="labelAndInputDiv">
+                    <label for="userName">Sua mensagem</label>
+                    <textarea name="mensagemUser" id="mensagemUser"></textarea>
+                </div>
+                </div>
+                <button (click)="verificarCamposPreenchidos()" type="button" class="btn btn-lg btn-primary">Enviar</button>
+            </form>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- //popup campos em branco -->
+<div class="modal fade" id="mainPopup" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">{{popupTitle}}</h1>
+                <button (click)="resetForm()" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <div *ngIf="!todosOsCamposPreenchidos" style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: 30px;">
+                    <i class="bi bi-exclamation-triangle"></i>
+                    <span  style="text-align: center; font-size: 20px; font-weight: bold; margin-bottom: 20px;">Ops! Parece que há campos em branco. Preencha todos para continuar. </span>
+                </div>
+
+                <div *ngIf="todosOsCamposPreenchidos" style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: 30px;">
+                    <i class="bi bi-check-all"></i>
+                    <span  style="text-align: justify; font-size: 20px; margin-bottom: 20px;">Obrigado pela sua mensagem, {{nomeValue}}! <br> <br> Acabamos de receber a sua solicitação e responderemos o mais breve possível através do e-mail {{emailValue}}. <br><br>Até logo! </span>
+                </div>
+            </div>        
+        </div>
+    </div>
+    
+</div>
+
+<app-footer></app-footer>

@@ -1,0 +1,56 @@
+ <app-loginform></app-loginform>
+<header>
+    <app-logo-image></app-logo-image>
+    
+    <ul>
+        <li (click)="goToHomePage()" class="optionMenu">Home</li>
+        <li>Lançamento</li>
+        <li (click)="goToContactPage()">Contato</li>
+        <li (click)="goToDashboardPage()" *ngIf="logado">Dashboard</li>
+        <li *ngIf="!logado" (click)="showPopupLogin()">Login</li>
+        <li (click)="deslogar()"  *ngIf="logado">Logout</li>
+    </ul>
+    <!-- sidebar bootstrap -->
+    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Menu</button>
+
+    <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Navegue através das opções abaixo</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+
+        <div class="offcanvas-body">
+            <div class="divOptionsFromSideBarMenu">
+                <i class="bi bi-house"></i>
+                <p (click)="goToHomePage()" class="optionMenu">Home</p>
+            </div>
+
+            <div class="divOptionsFromSideBarMenu">
+                <i class="bi bi-rocket-takeoff"></i>
+                <p class="optionMenu">Lançamento</p>
+            </div>
+
+            <div class="divOptionsFromSideBarMenu">
+                <i class="bi bi-telephone"></i>
+                <p class="optionMenu" (click)="goToContactPage()">Contato</p>
+            </div>
+
+            <div *ngIf = "logado" class="divOptionsFromSideBarMenu">
+                <i class="bi bi-bar-chart"></i>
+                <p (click)="goToDashboardPage()" class="optionMenu">Dashboard</p>
+            </div>
+
+            <div *ngIf = "!logado" class="divOptionsFromSideBarMenu">
+                <i class="bi bi-box-arrow-in-right"></i>
+                <p class="optionMenu">Login</p>
+            </div>
+
+            <div *ngIf = "logado" class="divOptionsFromSideBarMenu">
+                <i class="bi bi-box-arrow-left"></i>
+                <p (click)="deslogar()" class="optionMenu">Logout</p>
+            </div>
+        </div>
+    </div>
+
+
+</header>

@@ -1,0 +1,167 @@
+.callToActionLeft{
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    margin-left: 70px;
+    position: relative;
+    top: -550px;
+}
+
+.spanNewRanger{
+    font-size: 50px;
+    color: white;
+
+}
+
+.spanConheça{
+    color: var(--varAzulMarinho);
+    background-color: white;
+    font-size: 20px;
+    width: fit-content;
+    padding: 6px 24px;
+    border-radius: 200px;
+    transition: transform 0.5s ease;
+
+
+}
+
+.spanConheça:hover{
+    transform: scale(1.15);
+
+}
+
+.vehicleCentralImage{
+    width: 100%;
+    height: 80vh;
+
+}
+
+.divVehicleAndSpan{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 50px;
+}
+
+.carInfo{
+    font-size: 30px;
+    margin-top: -50px;
+    margin-bottom: 50px;
+    font-family: var(--fontQuicksand);
+    color: var(--varAzulMarinho);
+}
+
+.carInfo:hover{
+    color: var(--corAzulFraco);
+    cursor: pointer;
+    font-weight: bold;
+}
+
+
+@media(max-width:670px){
+    .vehicleCentralImage{
+        height: 60vh;
+    }
+}
+
+@media(max-width:500px){
+    .vehicleCentralImage{
+        height: 50vh;
+    }
+}
+
+@media(max-width:400px){
+    .vehicleCentralImage{
+        height: 40vh;
+    }
+}
+
+@media(max-width:1300px){
+    .callToActionLeft{
+    margin-left: 70px;
+    top: -450px;
+    }
+}
+
+@media(max-width:1131px){
+    .callToActionLeft{
+    margin-left: 70px;
+    top: -450px;
+    }
+
+    .vehicleCentralImage{
+        height: 60vh;
+    }
+}
+
+@media(max-width:1090px){
+    .callToActionLeft{
+    top: -300px;
+    }
+
+    .vehicleCentralImage{
+        height: 60vh;
+    }
+}
+
+@media(max-width:815px){
+    .vehicleCentralImage{
+        height: 50vh;
+    }
+
+    .callToActionLeft{
+    margin-left: 20px;
+    top: -350px;
+    }
+
+    .spanNewRanger{
+    font-size: 30px;
+    }
+
+    .spanConheça{
+    font-size: 20px;
+    }
+
+}
+
+@media(max-width:579px){
+  .spanNewRanger{
+    font-size: 20px;
+    }
+
+    .spanConheça{
+    font-size: 17px;
+    }
+
+    .vehicleCentralImage{
+        height: 40vh;
+    }
+
+    .callToActionLeft{
+    margin-left: 20px;
+    top: -250px;
+    }
+
+    @media(max-width:443px){}
+    .callToActionLeft{
+    display: none;
+    }
+
+    .carInfo{
+        margin-top: 20px;
+    }
+
+     .vehicleCentralImage{
+        height: 40vh;
+    }
+
+
+    
+}
+
+@media(max-width:511px){
+    .carInfo{
+        font-size: 20px;
+    }
+}
