@@ -19,7 +19,10 @@
 
 <div class="divVehicleAndSpan">
     <img class="vehicleCentralImage" [src]="imgListCarousel[indexNextImageToDisplay]" [alt]="imgListCarousel[indexNextImageToDisplay]">
-    <span (click)="goToLancamentoPage()" class="carInfo">{{infoListCarousel[indexNextImageToDisplay]}}</span>
+</div>
+<div style="display: flex; flex-direction: column; height: fit-content;" class="span">
+  <span class="carInfo">{{infoCallToAction[indexNextImageToDisplay]}}</span>
+  <span (click)="goToLancamentoPage()" class="carInfo2">{{infoListCarousel[indexNextImageToDisplay]}}</span>
 </div>
 
 
