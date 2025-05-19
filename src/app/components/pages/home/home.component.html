@@ -2,10 +2,23 @@
 <app-header></app-header>
 
 
+<div
+  [ngStyle]="{
+    'background-image': 'url(' + imgListCarousel[indexNextImageToDisplay] + ')',
+    'background-size': 'cover',
+    'filter': 'blur(8px)',
+    'background-repeat': 'no-repeat'
+  }"
+  class="image-container">
+</div>
 
-<div  class="divVehicleAndSpan">
+<!-- <div>
+
+</div> -->
+
+
+<div class="divVehicleAndSpan">
     <img class="vehicleCentralImage" [src]="imgListCarousel[indexNextImageToDisplay]" [alt]="imgListCarousel[indexNextImageToDisplay]">
-
     <span (click)="goToLancamentoPage()" class="carInfo">{{infoListCarousel[indexNextImageToDisplay]}}</span>
 </div>
 
