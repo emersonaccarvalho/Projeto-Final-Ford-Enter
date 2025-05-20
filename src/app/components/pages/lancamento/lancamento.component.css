@@ -103,6 +103,11 @@
     padding: 20px 0px;
     border-radius: 10px;
     box-shadow: 4px 4px 4px 2px #000000a2;
+    transition: 0.7s ease;
+}
+
+.carCompareCard:hover{
+  transform: scale(1.05);
 }
 
 .carModelName{

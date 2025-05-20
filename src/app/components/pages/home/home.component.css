@@ -38,7 +38,7 @@
 }
 
 .image-container{
-    height: 45%;
+    height: 60%;
     background-position: center;
     
 }
@@ -49,6 +49,7 @@
     box-shadow: 4px 4px 4px 2px #0000009a;
     border: solid 2px #000000;   
     width: 100%;
+    margin-top: 100px;
    
 }
 
@@ -63,7 +64,7 @@
     padding-bottom: 50px;
     z-index: 100;
     position: relative;
-    margin-top: -380px;
+    margin-top: -420px;
    
 }
 

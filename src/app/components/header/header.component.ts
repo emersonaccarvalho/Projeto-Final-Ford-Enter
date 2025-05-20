@@ -26,6 +26,7 @@ export class HeaderComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     this.inicializarPopupLogin();
+    // alert("Largura "+window.innerWidth+" px. Altura "+window.innerHeight);
   }
 
    inicializarPopupLogin(){
